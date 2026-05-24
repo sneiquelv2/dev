@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mueblería Artesanal - Isla Llingua</title>
+    <!-- Esta línea conecta el HTML con tu archivo de CSS separado -->
+    <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+    <!-- Encabezado de la página -->
+    <header>
+        <h1>Mueblería Artesanal</h1>
+        <p>Muebles de madera sólida hechos a mano y diseñados para durar</p>
+    </header>
+
+    <div class="container">
+
+        <!-- Sección de Información de la Mueblería -->
+        <section id="sobre-nosotros">
+            <h2>Nuestro Taller</h2>
+            <p>Nos dedicamos a la creación de piezas únicas e independientes utilizando madera maciza seleccionada. Evitamos el uso de melaminas o aglomerados para garantizar la máxima durabilidad y destacar la belleza natural de la veta. Cada proyecto se trabaja de manera personalizada, adaptándonos a las necesidades de espacio y diseño de tu hogar.</p>
+            
+            <h3>Conéctate con Nosotros</h3>
+            <p>Síguenos en nuestras redes sociales para ver nuestros últimos trabajos y proyectos en desarrollo:</p>
+            <div class="redes-sociales">
+                <a href="#" target="_blank" class="btn-red">Instagram</a>
+                <a href="#" target="_blank" class="btn-red">Facebook</a>
+                <a href="#" target="_blank" class="btn-red">WhatsApp</a>
+            </div>
+        </section>
+
+        <!-- Cuadro interactivo: Consulta o Pedido -->
+        <section id="contacto">
+            <h2>¿Tienes un proyecto en mente?</h2>
+            <p>Elige una opción, déjanos tus datos y te responderemos a la brevedad con una propuesta.</p>
+
+            <form id="formulario-contacto">
+                <div class="tipo-consulta">
+                    <label>
+                        <input type="radio" name="tipo_solicitud" value="Consulta" checked>
+                        Hacer una consulta
+                    </label>
+                    <label>
+                        <input type="radio" name="tipo_solicitud" value="Agendar Pedido">
+                        Agendar un pedido
+                    </label>
+                </div>
+
+                <div class="form-group">
+                    <label for="nombre">Nombre</label>
+                    <input type="text" id="nombre" name="nombre" placeholder="Escribe tu nombre completo" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="telefono">Teléfono</label>
+                    <input type="tel" id="telefono" name="telefono" placeholder="Ej: +56 9 1234 5678" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="email" id="email" name="email" placeholder="correo@ejemplo.com" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mensaje">Mensaje</label>
+                    <textarea id="mensaje" name="mensaje" rows="5" placeholder="Cuéntanos sobre el mueble que necesitas (medidas, tipo de madera, diseño)..." required></textarea>
+                </div>
+
+                <button type="submit">Enviar Solicitud</button>
+            </form>
+        </section>
+
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Mueblería Artesanal. Diseñado con orgullo desde Isla Llingua, Chiloé, Chile.</p>
+    </footer>
+
+    <!-- --- COMPORTAMIENTO (JAVASCRIPT) --- -->
+    <script>
+        document.getElementById('formulario-contacto').addEventListener('submit', function(event) {
+            event.preventDefault();
+
+            const tipo = document.querySelector('input[name="tipo_solicitud"]:checked').value;
+            const nombre = document.getElementById('nombre').value;
+            const telefono = document.getElementById('telefono').value;
+            const email = document.getElementById('email').value;
+            const mensaje = document.getElementById('mensaje').value;
+
+            console.log("Datos recibidos:", { tipo, nombre, telefono, email, mensaje });
+
+            alert(`¡Hola ${nombre}!\nTu ${tipo.toLowerCase()} ha sido procesada de manera correcta. Nos comunicaremos contigo muy pronto.`);
+
+            this.reset();
+        });
+    </script>
+</body>
+</html>
